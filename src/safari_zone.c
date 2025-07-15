@@ -28,6 +28,7 @@ extern const u8 SafariZone_EventScript_RetirePrompt[];
 extern const u8 SafariZone_EventScript_OutOfBallsMidBattle[];
 extern const u8 SafariZone_EventScript_OutOfBalls[];
 
+EWRAM_DATA u8 gNumStepsremainin = 0;
 EWRAM_DATA u8 gNumSafariBalls = 0;
 EWRAM_DATA static u16 sSafariZoneStepCounter = 0;
 EWRAM_DATA static u8 sSafariZoneCaughtMons = 0;
@@ -57,6 +58,7 @@ void EnterSafariMode(void)
     IncrementGameStat(GAME_STAT_ENTERED_SAFARI_ZONE);
     SetSafariZoneFlag();
     ClearAllPokeblockFeeders();
+    gNumStepsremainin = 40;
     gNumSafariBalls = 30;
     sSafariZoneStepCounter = 500;
     sSafariZoneCaughtMons = 0;
@@ -81,7 +83,13 @@ bool8 SafariZoneTakeStep(void)
 
     DecrementFeederStepCounters();
     sSafariZoneStepCounter--;
+    gNumStepsremainin--;
     if (sSafariZoneStepCounter == 0)
+    {
+        ScriptContext_SetupScript(SafariZone_EventScript_TimesUp);
+        return TRUE;
+    } 
+    if (gNumStepsremainin == 0)
     {
         ScriptContext_SetupScript(SafariZone_EventScript_TimesUp);
         return TRUE;

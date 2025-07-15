@@ -243,6 +243,7 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 
 LittlerootTown_EventScript_FatMan::
 	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
+	special EnterSafariMode
 	end
 
 LittlerootTown_EventScript_Boy::
