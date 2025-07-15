@@ -1,6 +1,15 @@
 #ifndef GUARD_METATILE_BEHAVIORS_H
 #define GUARD_METATILE_BEHAVIORS_H
 
+/*
+// Porytiles does not like enum
+
+#define MB_NORMAL 0
+#define MB_TALL_GRASS 2
+
+*/
+
+
 enum {
     MB_NORMAL,
     MB_SECRET_BASE_WALL,
@@ -245,6 +254,6 @@ enum {
     NUM_METATILE_BEHAVIORS
 };
 
-#define MB_INVALID   UCHAR_MAX
+#define MB_INVALID   255
 
 #endif // GUARD_METATILE_BEHAVIORS_H
