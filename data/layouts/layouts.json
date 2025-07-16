@@ -4415,7 +4415,7 @@
       "id": "LAYOUT_MAIN_TOWN",
       "name": "MainTown_Layout",
       "width": 30,
-      "height": 22,
+      "height": 26,
       "primary_tileset": "gTileset_NewPrimary",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/MainTown/border.bin",
